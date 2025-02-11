@@ -1,0 +1,40 @@
+.profile-card {
+    background: white;
+    padding: 0;
+    height: 800px;
+    width: 800px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .profile-info {
+    padding: 20px;
+    height: 800px;
+    font-size: 800px;
+  }
+  
+  .profile-name {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .profile-title {
+    color: gray;
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .profile-bio {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  p{
+    font-size: 900px;
+  }
