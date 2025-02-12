@@ -1,0 +1,42 @@
+//childB
+const ChildB=({count,increment,decrement})=>{
+    console.log("child B rendered")
+    return(
+        <div>
+            <h1>
+                Count:{count}
+            </h1>
+            <button onClick={increment}>Increment </button>
+            <button onClick={decrement}>decrement </button>
+        </div>
+    )
+}
+export default ChildB;
+
+//childA
+const ChildA=()=>{
+    console.log("child A rendered")
+    return <h2>this is  child A</h2>
+}
+export default ChildA;
+
+////App.js
+import {useState} from 'react';
+import ChildA from './ChildA.js';
+import ChildB from './ChildB.js';
+const Parent=()=>{
+    const[count,setCount]=useState(0);
+    const increment=()=>{
+        setCount(c=>c+1);
+    };
+    const decrement=()=>{
+      setCount(c=>c-1);
+  };
+    return(
+        <div>
+            <ChildA/>
+            <ChildB count={count} increment={increment} decrement={decrement} />
+        </div>
+    ) 
+};
+export default Parent;
