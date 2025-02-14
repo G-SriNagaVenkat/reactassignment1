@@ -1,0 +1,42 @@
+import React, { useReducer, useState } from "react"; 
+
+// Reducer function to track the number of apples
+function appleReducer(state, action) { 
+  switch (action.type) { 
+    case 'ADD_APPLE': 
+      return state + 1; 
+    case 'EAT_APPLE': 
+      return state > 0 ? state - 1 : 0; 
+    default: 
+      return state; 
+  } 
+} 
+
+function App() { 
+  const [count, dispatch] = useReducer(appleReducer, 1); 
+  const [apples, setApples] = useState([<img key={0} src={require('./apple.png')} alt='apple'  style={{'height':"10","width":"10"}}/>]);
+
+  const handleAddApple = () => {
+    dispatch({ type: 'ADD_APPLE' });
+    setApples([...apples, <img key={apples.length} src={require('./apple.png')} alt='apple'  style={{'height':"10","width":"10"}}/>]);
+  }
+
+  const handleEatApple = () => {
+    if (apples.length > 0) {
+      dispatch({ type: 'EAT_APPLE' });
+      setApples(apples.slice(0, -1));
+    }
+  }
+
+  return ( 
+    <div> 
+      <h1>Apple Counter</h1> 
+      <p>Number of apples: {count}</p> 
+      <button onClick={handleAddApple}>Add Apple</button> 
+      <button onClick={handleEatApple}>Eat Apple</button> 
+      {apples}
+    </div> 
+  ); 
+} 
+
+export default App;
